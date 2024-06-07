@@ -4,6 +4,23 @@ import requests
 # Defina sua chave API
 api_key = "88193101454b15bf710f79d9106882aa"
 
+# Função para adicionar uma imagem de fundo
+def add_bg_from_url():
+    st.markdown(
+         f"""
+         <style>
+         .stApp {{
+             background-image: url("https://your-image-url.jpg");
+             background-size: cover;
+         }}
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
+
+# Adiciona a imagem de fundo
+add_bg_from_url()
+
 # Título da aplicação
 st.title("Consulta de Clima")
 
@@ -39,3 +56,4 @@ if cidade:
         st.write(f"**Umidade:** {umidade}%")
     else:
         st.error(f"Não foi possível encontrar o clima para a cidade '{cidade}'. Verifique o nome e tente novamente.")
+
