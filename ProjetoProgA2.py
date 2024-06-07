@@ -10,7 +10,7 @@ def add_bg_from_url():
          f"""
          <style>
          .stApp {{
-             background-image: url("https://raw.githubusercontent.com/majufigueiredo/ProjetoProgA2/upload/main/nuvem");
+             background-image: url("https://raw.githubusercontent.com/majufigueiredo/ProjetoProgA2/main/foto.fundo.nuvem.jpg");
              background-size: cover;
          }}
          </style>
