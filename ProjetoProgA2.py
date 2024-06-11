@@ -52,12 +52,13 @@ if cidade:
         st.write(f"**Descrição:** {descricao.capitalize()}")
         
         # Exibe as métricas
-        col1, col2, col3, col4 = st.columns(4)
+        col1, col2, col3, col4, col5 = st.columns(5)
         col1.metric("Temperatura Atual", f"{temperatura_atual}°C")
         col2.metric("Temperatura Mínima", f"{temperatura_minima}°C")
         col3.metric("Sensação Térmica", f"{sensacao_termica}°C")
         col4.metric("Temperatura Máxima", f"{temperatura_maxima}°C")
+        col5.metric("Umidade", f"{umidade}%")
         
-        st.write(f"**Umidade:** {umidade}%")
+        
     else:
         st.error(f"Não foi possível encontrar o clima para a cidade '{cidade}'. Verifique o nome e tente novamente.")
