@@ -1,7 +1,6 @@
 import streamlit as st
 import requests
 import matplotlib.pyplot as plt
-import numpy as np
 
 # Defina sua chave API
 api_key = "88193101454b15bf710f79d9106882aa"
@@ -61,23 +60,26 @@ if cidade:
         col4.metric("Temperatura Máxima", f"{temperatura_maxima}°C")
         col5.metric("Umidade", f"{umidade}%")
         
-        # Dados para o gráfico de linhas
-        horas = np.arange(0, 24, 3)
-        temperaturas = np.full_like(horas, temperatura_atual, dtype=float)
-        sensacoes = np.full_like(horas, sensacao_termica, dtype=float)
+        # Dados para o gráfico comparativo
+        categorias = ['Temperatura Atual', 'Sensação Térmica', 'Temperatura Máxima']
+        valores = [temperatura_atual, sensacao_termica, temperatura_maxima]
 
         # Criação do gráfico
         plt.figure(figsize=(10, 5))
-        plt.plot(horas, temperaturas, label='Temperatura Atual', color='blue', marker='o')
-        plt.plot(horas, sensacoes, label='Sensação Térmica', color='red', marker='o')
-        plt.xlabel('Horas')
+        plt.plot(categorias, valores, marker='o')
+        plt.xlabel('Categorias')
         plt.ylabel('Temperatura (°C)')
-        plt.title('Temperatura Atual e Sensação Térmica')
-        plt.legend()
+        plt.title('Comparação de Temperaturas')
         plt.grid(True)
         
+        # Adiciona as linhas com cores diferentes
+        plt.plot(categorias[0], valores[0], 'bo-', label='Temperatura Atual')
+        plt.plot(categorias[1], valores[1], 'ro-', label='Sensação Térmica')
+        plt.plot(categorias[2], valores[2], 'go-', label='Temperatura Máxima')
+
         # Exibe o gráfico no Streamlit
         st.pyplot(plt.gcf())
         
     else:
         st.error(f"Não foi possível encontrar o clima para a cidade '{cidade}'. Verifique o nome e tente novamente.")
+
