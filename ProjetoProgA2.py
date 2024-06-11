@@ -24,7 +24,7 @@ def add_bg_from_url():
 add_bg_from_url()
 
 # Título da aplicação
-st.title("Consulta de Clima")
+st.title("Consulta de Clima⛅")
 
 # Campo de entrada para o nome da cidade
 cidade = st.text_input("Digite o nome da cidade:")
