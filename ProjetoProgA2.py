@@ -1,7 +1,4 @@
-import streamlit as st
-import requests
-import matplotlib.pyplot as plt
-import datetime
+
 
 # Função para adicionar uma imagem de fundo (opcional)
 def add_bg_from_url():
