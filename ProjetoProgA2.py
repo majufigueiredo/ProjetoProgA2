@@ -25,7 +25,7 @@ def add_bg_from_url():
 add_bg_from_url()
 
 # Título da aplicação
-st.title("Consulta de Clima🌞🌧️❄️")
+st.title("Consulta de Clima")
 
 # Campo de entrada para o nome da cidade
 cidade = st.text_input("Digite o nome da cidade:")
@@ -72,7 +72,7 @@ if cidade:
         pais = dados_clima['sys']['country']
 
         # Exibe as informações
-        st.subheader(f"Clima em {cidade.capitalize()}:")
+        st.subheader(f"Clima em {cidade.capitalize()} ({pais}):")
         st.write(f"**Descrição:** {descricao.capitalize()}")
         
         # Exibe as métricas
@@ -107,3 +107,4 @@ if cidade:
         
     else:
         st.error(f"Não foi possível encontrar o clima para a cidade '{cidade}'. Verifique o nome e tente novamente.")
+
